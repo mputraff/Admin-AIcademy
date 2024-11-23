@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import Logo from '../assets/image/LogoAicademy.png';
 
 export default function Navbar({ isLoggedIn }) {
     const navigate = useNavigate();
@@ -21,7 +22,9 @@ export default function Navbar({ isLoggedIn }) {
                         <li className="cursor-pointer" onClick={handleLogout}>Logout</li>
                     </ul>
                 )}
-                <div className="w-8 h-8 bg-black rounded-full"></div>
+                <div className="w-8 h-8">
+                    <img src={Logo} alt="" className="h-full w-full flex rotate-90 rounded-xl" />
+                </div>
             </nav>
         </header>
     );
