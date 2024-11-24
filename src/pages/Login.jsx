@@ -10,7 +10,7 @@ export default function Login() {
     const handleLogin = async (email, password) => {
         try {
             const response = await axios.post(
-                "https://aicademy-production.up.railway.app/api/auth/login",
+                "https://aicademy-api-573404438653.asia-southeast2.run.app/api/auth/login",
                 { email, password }
             );
             const token = response.data.token;

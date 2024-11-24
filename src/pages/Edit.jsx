@@ -10,7 +10,7 @@ export default function Edit() {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch("https://aicademy-production.up.railway.app/api/auth/users", {
+      const response = await fetch("https://aicademy-api-573404438653.asia-southeast2.run.app/api/auth/users", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await response.json();
@@ -41,7 +41,7 @@ export default function Edit() {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch(`https://aicademy-production.up.railway.app/api/auth/users/${editingUser._id}`, {
+      const response = await fetch(`https://aicademy-api-573404438653.asia-southeast2.run.app/api/auth/users/${editingUser._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -65,7 +65,7 @@ export default function Edit() {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
       try {
-        const response = await fetch(`https://aicademy-production.up.railway.app/api/auth/users/${id}`, {
+        const response = await fetch(`https://aicademy-api-573404438653.asia-southeast2.run.app/api/auth/users/${id}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${token}`,
