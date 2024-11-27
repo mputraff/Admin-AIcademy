@@ -126,7 +126,7 @@ export default function Edit() {
             <tbody>
               {filteredUsers.map((user) => (
                 <tr key={user._id} className="hover:bg-gray-50 text-center">
-                  <td className="border border-gray-300 px-4 py-2">{user._id}</td>
+                  <td className="border border-gray-300 px-4 py-2">{user.id}</td>
                   <td className="border border-gray-300 px-4 py-2">{user.name}</td>
                   <td className="border border-gray-300 px-4 py-2">{user.email}</td>
                   <td className="border border-gray-300 px-4 py-2">

@@ -32,7 +32,7 @@ export default function Table() {
                         <tr className="bg-gray-100">
                             <th className="border border-gray-300 px-4 py-2">Id</th>
                             <th className="border border-gray-300 px-4 py-2">Name</th>
-                            <th className="border border-gray-300 px-4 py-2">Gmail</th>
+                            <th className="border border-gray-300 px-4 py-2">Email</th>
                             <th className="border border-gray-300 px-4 py-2">Password</th>
                             <th className="border border-gray-300 px-4 py-2">Profile Picture</th>
                             <th className="border border-gray-300 px-4 py-2">Otp</th>
@@ -44,7 +44,7 @@ export default function Table() {
                     <tbody>
                         {users.map((user, index) => (
                             <tr key={index} className="hover:bg-gray-50 text-center">
-                                <td className="border border-gray-300 px-4 py-2">{user._id}</td>
+                                <td className="border border-gray-300 px-4 py-2">{user.id}</td>
                                 <td className="border border-gray-300 px-4 py-2">{user.name}</td>
                                 <td className="border border-gray-300 px-4 py-2">{user.email}</td>
                                 <td className="border border-gray-300 px-4 py-2">{user.password}</td>
