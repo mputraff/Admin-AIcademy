@@ -40,20 +40,29 @@ export default function Edit() {
   };
 
   const handleSubmit = async () => {
+    const formDataToSend = new FormData();
+    formDataToSend.append('name', formData.name);
+    formDataToSend.append('email', formData.email);
+    if (formData.password) {
+      formDataToSend.append('password', formData.password);
+    }
+    if (formData.profilePicture) {
+      formDataToSend.append('profilePicture', formData.profilePicture);
+    }
+  
     try {
-      const response = await fetch(`https://aicademy-api-573404438653.asia-southeast2.run.app/api/auth/users/${editingUser.id}`, {
-        method: "PUT",
+      const response = await fetch(`https://aicademy-api-573404438653.asia-southeast2.run.app/api/auth/edit-profile`, {
+        method: "PATCH",
         headers: {
-          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(formData),
+        body: formDataToSend,
       });
-
+  
       if (response.ok) {
         alert("User updated successfully!");
-        setEditingUser(null); // Tutup form edit
-        fetchUsers(); // Refresh data
+        setEditingUser(null);
+        fetchUsers(); // Refresh user data
       } else {
         console.error("Failed to update user");
       }
@@ -61,6 +70,7 @@ export default function Edit() {
       console.error("Error updating user:", error);
     }
   };
+  
 
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
