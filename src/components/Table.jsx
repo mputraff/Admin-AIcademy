@@ -8,7 +8,7 @@ export default function Table() {
 
     const fetchUsers = async () => {
         try {
-            const response = await fetch("https://aicademy-production.up.railway.app/api/auth/users", {
+            const response = await fetch("https://aicademy-api-573404438653.asia-southeast2.run.app/api/auth/users", {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
