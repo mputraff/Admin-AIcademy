@@ -41,7 +41,7 @@ export default function Edit() {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch(`https://aicademy-api-573404438653.asia-southeast2.run.app/api/auth/users/${editingUser._id}`, {
+      const response = await fetch(`https://aicademy-api-573404438653.asia-southeast2.run.app/api/auth/users/${editingUser.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -133,7 +133,7 @@ export default function Edit() {
                     <button className="text-blue-500 mr-2" onClick={() => handleEditClick(user)}>
                       Edit
                     </button>
-                    <button className="text-red-500" onClick={() => handleDelete(user._id)}>
+                    <button className="text-red-500" onClick={() => handleDelete(user.id)}>
                       Delete
                     </button>
                   </td>

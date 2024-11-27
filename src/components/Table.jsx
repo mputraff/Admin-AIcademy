@@ -48,7 +48,7 @@ export default function Table() {
                                 <td className="border border-gray-300 px-4 py-2">{user.name}</td>
                                 <td className="border border-gray-300 px-4 py-2">{user.email}</td>
                                 <td className="border border-gray-300 px-4 py-2">{user.password}</td>
-                                <td className="border border-gray-300 px-4 py-2">{user.profilePicture || "N/A"}</td>
+                                <td className="border border-gray-300 px-4 py-2">{user.profilePicture}</td>
                                 <td className="border border-gray-300 px-4 py-2">{user.otp}</td>
                                 <td className="border border-gray-300 px-4 py-2">{user.otpExpires}</td>
                                 <td className="border border-gray-300 px-4 py-2">{new Date(user.createdAt).toLocaleString()}</td>
