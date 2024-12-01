@@ -1,14 +1,15 @@
 
-import  { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Table() {
 
     const [users, setUsers] = useState([]);
     const token = localStorage.getItem("authToken");
+    const baseURL = "https://aicademy-api-573404438653.asia-southeast2.run.app";
 
     const fetchUsers = async () => {
         try {
-            const response = await fetch("https://aicademy-api-573404438653.asia-southeast2.run.app/api/auth/users", {
+            const response = await fetch(`${baseURL}/api/auth/users`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -48,7 +49,22 @@ export default function Table() {
                                 <td className="border border-gray-300 px-4 py-2">{user.name}</td>
                                 <td className="border border-gray-300 px-4 py-2">{user.email}</td>
                                 <td className="border border-gray-300 px-4 py-2">{user.password}</td>
-                                <td className="border border-gray-300 px-4 py-2">{user.profilePicture}</td>
+                                <td className="border border-gray-300 px-4 py-2">
+                                    {user.profilePicture ? (
+                                        <img
+                                            src={
+                                                user.profilePicture.startsWith("/")
+                                                    ? `${baseURL}${user.profilePicture}` // Tambahkan baseURL jika path relatif
+                                                    : user.profilePicture // Gunakan URL langsung jika sudah absolut
+                                            }
+                                            alt="Profile"
+                                            className="h-auto w-auto object-cover rounded-full mx-auto"
+                                        />
+                                    ) : (
+                                        "No Image"
+                                    )}
+                                </td>
+
                                 <td className="border border-gray-300 px-4 py-2">{user.otp}</td>
                                 <td className="border border-gray-300 px-4 py-2">{user.otpExpires}</td>
                                 <td className="border border-gray-300 px-4 py-2">{new Date(user.createdAt).toLocaleString()}</td>
