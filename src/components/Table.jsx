@@ -5,7 +5,7 @@ export default function Table() {
 
     const [users, setUsers] = useState([]);
     const token = localStorage.getItem("authToken");
-    const baseURL = "http://localhost:8080";
+    const baseURL = "https://aicademy-api-573404438653.asia-southeast2.run.app";
 
     const fetchUsers = async () => {
         try {
